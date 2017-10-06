@@ -4,8 +4,7 @@ if(NOT TARGET beast)
 
     ExternalProject_Add (
         beast
-        #URL  "https://github.com/boostorg/beast/archive/master.zip"
-        URL  "file://${CMAKE_SOURCE_DIR}/deps/beast-master.tgz"
+        URL  "https://github.com/boostorg/beast/archive/master.zip"
         BUILD_COMMAND ""
         BUILD_IN_SOURCE 1
         INSTALL_COMMAND cmake -E echo "Skipping install step."
