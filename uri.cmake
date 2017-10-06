@@ -4,8 +4,7 @@ if(NOT TARGET uri)
 
     ExternalProject_Add (
         uri
-        #URL  "https://github.com/reBass/uri/archive/master.zip"
-        URL  "file://${CMAKE_SOURCE_DIR}/deps/uri-master.zip"
+        URL  "https://github.com/reBass/uri/archive/master.zip"
         CMAKE_ARGS "-G${CMAKE_GENERATOR}"
             "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS} -fPIC"
             "-DBOOST_INCLUDEDIR=${BOOST_INCLUDEDIR}"
