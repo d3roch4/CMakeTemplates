@@ -4,7 +4,7 @@ if(NOT TARGET beast)
 
     ExternalProject_Add (
         beast
-        URL  "https://github.com/boostorg/beast/archive/master.zip"
+        URL  "https://github.com/d3roch4/beast/archive/develop.zip"
         BUILD_COMMAND ""
         BUILD_IN_SOURCE 1
         INSTALL_COMMAND cmake -E echo "Skipping install step."
