@@ -13,20 +13,21 @@ if(NOT TARGET libjsoncpp)
             "-DJSONCPP_WITH_TESTS=OFF"
             "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF"
             "-DJSONCPP_WITH_PKGCONFIG_SUPPORT=OFF"
-    )
+    )   
     set_target_properties(jsoncpp  PROPERTIES POSITION_INDEPENDENT_CODE ON)
-    ExternalProject_Get_Property(jsoncpp source_dir binary_dir)
-
+    
     # Create a libjsoncpp target to be used as a dependency by test programs
     add_library(libjsoncpp IMPORTED STATIC GLOBAL)
-    # Set libjsoncpp properties
-    set_target_properties(libjsoncpp PROPERTIES
-        "IMPORTED_LOCATION" "${binary_dir}/src/lib_json/libjsoncpp.a"
-    )
-    set(JSONCPP_INCLUDE "${source_dir}/include"
-        CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
+    
 endif()
 
+ExternalProject_Get_Property(jsoncpp source_dir binary_dir)
+# Set libjsoncpp properties
+set_target_properties(libjsoncpp PROPERTIES
+    "IMPORTED_LOCATION" "${binary_dir}/src/lib_json/libjsoncpp.a")
+set(JSONCPP_INCLUDE "${source_dir}/include"
+    CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
+        
 include_directories(${JSONCPP_INCLUDE})
 if(TARGET ${PROJECT_NAME})
     add_dependencies(${PROJECT_NAME} jsoncpp)
