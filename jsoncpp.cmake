@@ -28,7 +28,7 @@ if(NOT TARGET libjsoncpp)
 endif()
 
 include_directories(${JSONCPP_INCLUDE})
-if(NOT TARGET ${PROJECT_NAME})
+if(TARGET ${PROJECT_NAME})
     add_dependencies(${PROJECT_NAME} jsoncpp)
     target_link_libraries(${PROJECT_NAME} libjsoncpp )
 endif()
