@@ -26,7 +26,7 @@ ExternalProject_Get_Property(jsoncpp source_dir binary_dir)
 set_target_properties(libjsoncpp PROPERTIES
     "IMPORTED_LOCATION" "${binary_dir}/src/lib_json/libjsoncpp.a")
 set(JSONCPP_INCLUDE "${source_dir}/include"
-    CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
+    CACHE INTERNAL "JSONCPP: Include Directories" FORCE)
         
 include_directories(${JSONCPP_INCLUDE})
 if(TARGET ${PROJECT_NAME})
