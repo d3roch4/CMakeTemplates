@@ -27,7 +27,8 @@ if(NOT TARGET libjsoncpp)
         CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
 endif()
 
-
-add_dependencies(${PROJECT_NAME} jsoncpp)
 include_directories(${JSONCPP_INCLUDE})
-target_link_libraries(${PROJECT_NAME} libjsoncpp )
+if(NOT TARGET ${PROJECT_NAME})
+    add_dependencies(${PROJECT_NAME} jsoncpp)
+    target_link_libraries(${PROJECT_NAME} libjsoncpp )
+endif()
